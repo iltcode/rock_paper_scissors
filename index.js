@@ -11,76 +11,106 @@ function computerPlay()
     return item;
 }
 
-let computerSelection = computerPlay();
+let computerSelection;
 
-let playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
-let playerSelection = playerSelectionPrompt.toLocaleLowerCase();
+let playerSelectionPrompt;
+let playerSelection;
+
+
 function playRound(playerSelection, computerSelection) 
 {
     if(computerSelection == "rock" && playerSelection == "rock")
     {
         console.log("You make the same choice.Do it again!");
-        computerSelection = computerPlay();
-        playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
-        playRound(playerSelection, computerSelection);
+        return "equal";
     }
     else if(computerSelection == "rock" && playerSelection == "paper")
     {
         console.log("You Win! Paper beats Rock");
+        return "win";
     }
     else if(computerSelection == "rock" && playerSelection == "scissors")
     {
         console.log("You Lose! Rock beats Scissors");
+        return "lose";
     }
     else if(computerSelection == "paper" && playerSelection == "paper")
     {
         console.log("You make the same choice.Do it again!");
-        computerSelection = computerPlay();
-        playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
-        playRound(playerSelection, computerSelection);
+        return "equal";
     }
     else if(computerSelection == "paper" && playerSelection == "rock")
     {
         console.log("You Lose! Paper beats Rock");
+        return "lose";
     }
     else if(computerSelection == "paper" && playerSelection == "scissors")
     {
         console.log("You Win! Scissors beats Paper");
+        return "win";
     }
     else if(computerSelection == "scissors" && playerSelection == "scissors")
     {
         console.log("You make the same choice.Do it again!");
-        computerSelection = computerPlay();
-        playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
-        playRound(playerSelection, computerSelection);
+        return "equal";
     }
     else if(computerSelection == "scissors" && playerSelection == "paper")
     {
         console.log("You Lose! Scissors beats Paper");
+        return "lose";
     }
     else if(computerSelection == "scissors" && playerSelection == "rock")
     {
         console.log("You Win! Rock beats Scissors");
+        return "win";
     } else {
         console.log(computerSelection);
     }
   }
 
-//   playRound(playerSelection, computerSelection);
 
-for (let i = 0; i < 5; i++) 
+
+
+function game()
 {
-    let report;
-    computerSelection = computerPlay();
-    playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
-    report += playRound(playerSelection, computerSelection);
-    console.log(report);
+    
+    let scoreComputer = 0;
+    let scorePlayer = 0;
+    
+    for (let i = 0; i < 5; i++) 
+    {
+        let report;
+        
+        computerSelection = computerPlay();
+        playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
+        playerSelection = playerSelectionPrompt.toLowerCase();
+        report = playRound(playerSelection, computerSelection);
+        console.log(report);
+        if(report == "win")
+        {
+            scorePlayer++;
+            
+        }else if (report == "lose")
+        {
+            scoreComputer++;
+        }
+    }
+
+    if(scoreComputer > scorePlayer)
+    {
+        console.log("You Lose!" + scoreComputer + scorePlayer);
+    }
+    else if(scoreComputer < scorePlayer)
+    {
+        console.log("You Win!" + scoreComputer + scorePlayer);
+    }else{
+        console.log("Play again you are equal" + scoreComputer + scorePlayer);
+    }
 }
 
 
 
-
-
+game();
 
 
 
