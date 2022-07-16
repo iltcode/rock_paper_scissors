@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    background-image: url("pexels-soulful-pizza-3780681.jpg");
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 500px;
+    background-color: yellow;
+}
+
+.sub_one {
+    margin-bottom: 50px;
+}
+
+.sub_one > div {
+    display: flex;
+}
