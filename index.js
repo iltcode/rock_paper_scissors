@@ -11,14 +11,7 @@ function computerPlay()
     return item;
 }
 
-// let computerSelection;
 
-// let playerSelectionPrompt;
-// let playerSelection;
-
-let computerSelection = computerPlay();
-// let playerSelectionPrompt = prompt("Inter your choice of rock paper or scissors");
-// let playerSelection = playerSelectionPrompt.toLowerCase();
 
 
 function playRound(playerSelection, computerSelection) 
@@ -147,22 +140,23 @@ const rockBtn = document.querySelector('#r');
 // the above playRound function is not working use the below way!!!
 
 rockBtn.addEventListener('click', () => {
-    game("rock", computerSelection);
+    game("rock", computerPlay());
 });
 
 const paperBtn = document.querySelector('#p');
 paperBtn.addEventListener('click', () => {
-    game("paper", computerSelection);
+    game("paper", computerPlay());
 });
 
 const scissorBtn = document.querySelector('#s');
 scissorBtn.addEventListener('click', () => {
-    game("scissors", computerSelection);
+    game("scissors", computerPlay());
 });
 
 const restBtn = document.querySelector('#rest');
 restBtn.addEventListener('click', () => {
     resit();
+    computerPlay();
 });
 
 
